@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 400;
+    src: url('./PretendardVariable.woff2') format('woff2-variations');
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Pretendard', 'Pretendard JP', 'Noto Sans JP', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.background {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #2C2F33;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.text {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.petImage {
+    width: 90px;
+    height: 90px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    object-fit: contain;
+}
+
+.button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    height: 38px;
+    min-width: 96px;
+    min-height: 38px;
+    margin-top: 20px;
+    border: none;
+    color: #fff;
+    background-color: rgb(88, 101, 242);
+    transition: background-color .17s ease, color .17s ease;
+    
+}
+.button:hover {
+    background-color: rgb(71, 82, 196);
+}
+.button:active {
+    transform: translateY(5px);
+}
