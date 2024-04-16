@@ -1,6 +1,6 @@
-let curCookie = 0
-let curPet = 0
-let curEpisode = 0
+let cur_cookie = 0
+let cur_pet = 0
+let cur_episode = 0
 
 const cookies = [
     '용감한 쿠키군',
@@ -73,6 +73,7 @@ const cookies = [
     '달빛술사 쿠키',
     '바다요정 쿠키',
     '바람궁수 쿠키',
+    '딸기쇼트케이크맛 쿠키'
 ]
 
 const pets = [
@@ -155,6 +156,7 @@ const pets = [
     '달절구',
     '초코 왕방울',
     '방울방울 콩콩이',
+    '작은 케이크들개'
 ]
 
 const episodes = [
@@ -165,41 +167,62 @@ const episodes = [
     '디저트 파라다이스'
 ]
 
+const cookies_image = Array.from({ length: cookies.length }, (_, idx) => {
+    const img = new Image()
+    img.src = `./images/cookies/${idx}.webp`
+
+    return img
+})
+
+const pets_image = Array.from({ length: pets.length }, (_, idx) => {
+    const img = new Image()
+    img.src = `./images/pets/${idx}.webp`
+    
+    return img
+})
+
+const episodes_image = Array.from({ length: episodes.length }, (_, idx) => {
+    const img = new Image()
+    img.src = `./images/episodes/${idx}.webp`
+    
+    return img
+})
+
 const randrange = (range) => {
-    return Math.floor(Math.random() * range);
+    const randomArr = new Uint32Array(1)
+
+    window.crypto.getRandomValues(randomArr)
+
+    return randomArr[0] % range
+}
+
+const choice = (prev, array) => {
+    let rand
+
+    do {
+        rand = randrange(array.length)
+    } while (rand === prev)
+
+    return rand
 }
 
 const randomCookie = () => {
-    rand = randrange(70);
+    cur_cookie = choice(cur_cookie, cookies)
 
-    if (rand === curCookie) {
-        rand = randrange(70)
-    }
-
-    curCookie = rand
-
-    document.getElementById('img1').src = `./images/cookies/${rand}.webp`
-    document.getElementById('name1').innerText = cookies[rand]
+    document.getElementById('img1').src = `./images/cookies/${cur_cookie}.webp`
+    document.getElementById('name1').innerText = cookies[cur_cookie]
 }
 
 const randomPet = () => {
-    rand = randrange(79);
+    cur_pet = choice(cur_pet, pets)
 
-    if (rand === curPet) {
-        rand = randrange(79)
-    }
-
-    curPet = rand
-
-    document.getElementById('img2').src = `./images/pets/${rand}.webp`
-    document.getElementById('name2').innerText = pets[rand]
+    document.getElementById('img2').src = `./images/pets/${cur_pet}.webp`
+    document.getElementById('name2').innerText = pets[cur_pet]
 }
 
 const randomEpisode = () => {
-    rand = randrange(4);
+    cur_episode = choice(cur_episode, episodes)
 
-    curEpisode = rand
-
-    document.getElementById('img3').src = `./images/episodes/${rand}.webp`
-    document.getElementById('name3').innerText = episodes[rand]
+    document.getElementById('img3').src = `./images/episodes/${cur_episode}.webp`
+    document.getElementById('name3').innerText = episodes[cur_episode]
 }
