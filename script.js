@@ -209,20 +209,20 @@ const choice = (prev, array) => {
 const randomCookie = () => {
     cur_cookie = choice(cur_cookie, cookies)
 
-    document.getElementById('img1').src = `./images/cookies/${cur_cookie}.webp`
+    document.getElementById('img1').src = cookies_image[cur_cookie].src
     document.getElementById('name1').innerText = cookies[cur_cookie]
 }
 
 const randomPet = () => {
     cur_pet = choice(cur_pet, pets)
 
-    document.getElementById('img2').src = `./images/pets/${cur_pet}.webp`
+    document.getElementById('img2').src = pets_image[cur_pet].src
     document.getElementById('name2').innerText = pets[cur_pet]
 }
 
 const randomEpisode = () => {
     cur_episode = choice(cur_episode, episodes)
 
-    document.getElementById('img3').src = `./images/episodes/${cur_episode}.webp`
+    document.getElementById('img3').src = episodes_image[cur_episode].src
     document.getElementById('name3').innerText = episodes[cur_episode]
 }
