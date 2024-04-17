@@ -1,3 +1,29 @@
+let page = 0
+const html = $('html')
+html.animate({ scrollTop: 0 }, 10)
+
+window.addEventListener('wheel', (e) => {
+	e.preventDefault()
+}, { passive : false })
+
+$(window).on('wheel', (e) => {
+    if (html.is(":animated")) {
+        return
+    }
+
+    if (e.originalEvent.deltaY > 0) {
+        page = 1
+        console.log('Down')
+    } else if (e.originalEvent.deltaY < 0) {
+        page = 0
+        console.log('Up')
+    }
+
+    const targetPos = page * $(window).height();
+    html.animate({ scrollTop: targetPos })
+})
+
+
 let cur_cookie = 0
 let cur_pet = 0
 let cur_episode = 0

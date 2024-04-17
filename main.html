@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쿠키 랜덤 뽑기</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="./style.css"/>
     <script src="./script.js"></script>
 </head>
 <body>
     <div class="background">
-        <h1 class="title">쿠키런 랜덤런 헬퍼</h1>
+        <h1 class="title">Random Run</h1>
         <div class="container">
             <div class="block" id="block1">
                 <span class="text">쿠키</span>
@@ -28,6 +29,23 @@
                 <img class="image" src="./images/episodes/0.webp" id="img3"/>
                 <span class="text" id="name3">마녀의 오븐</span>
                 <button class="button" id="button3" onclick="randomEpisode()">Roll</button>
+            </div>
+        </div>
+    </div>
+    <div class="background">
+        <h1 class="title">At Once</h1>
+        <div class="container">
+            <div class="block">
+                <span class="text">쿠키</span>
+                <img class="image" src="./images/cookies/0.webp" id="img1"/>
+                <span class="text" id="name1">용감한 쿠키군</span>
+                <button class="button" id="button1" onclick="randomCookie()">Roll</button>
+            </div>
+            <div class="block">
+                <span class="text">펫</span>
+                <img class="petImage" src="./images/pets/0.webp" id="img2"/>
+                <span class="text" id="name2">초코방울</span>
+                <button class="button" id="button2" onclick="randomPet()">Roll</button>
             </div>
         </div>
     </div>
