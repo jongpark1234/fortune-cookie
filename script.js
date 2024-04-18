@@ -232,23 +232,23 @@ const choice = (prev, array) => {
     return rand
 }
 
-const randomCookie = () => {
+const randomCookie = (index) => {
     cur_cookie = choice(cur_cookie, cookies)
 
-    document.getElementById('img1').src = cookies_image[cur_cookie].src
-    document.getElementById('name1').innerText = cookies[cur_cookie]
+    document.getElementById('img' + index).src = cookies_image[cur_cookie].src
+    document.getElementById('name' + index).innerText = cookies[cur_cookie]
 }
 
-const randomPet = () => {
+const randomPet = (index) => {
     cur_pet = choice(cur_pet, pets)
 
-    document.getElementById('img2').src = pets_image[cur_pet].src
-    document.getElementById('name2').innerText = pets[cur_pet]
+    document.getElementById('img' + index).src = pets_image[cur_pet].src
+    document.getElementById('name' + index).innerText = pets[cur_pet]
 }
 
-const randomEpisode = () => {
+const randomEpisode = (index) => {
     cur_episode = choice(cur_episode, episodes)
 
-    document.getElementById('img3').src = episodes_image[cur_episode].src
-    document.getElementById('name3').innerText = episodes[cur_episode]
+    document.getElementById('img' + index).src = episodes_image[cur_episode].src
+    document.getElementById('name' + index).innerText = episodes[cur_episode]
 }
