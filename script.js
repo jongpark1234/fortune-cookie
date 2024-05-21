@@ -24,7 +24,8 @@ $(window).on('wheel', (e) => {
 })
 
 
-let cur_cookie = 0
+let cur_cookie_front = 0
+let cur_cookie_back = 0
 let cur_pet = 0
 let cur_episode = 0
 
@@ -222,32 +223,39 @@ const randrange = (range) => {
     return randomArr[0] % range
 }
 
-const choice = (prev, array) => {
-    let rand
+const choice = (prev, index, array) => {
+    let rand = randrange(array.length)
 
-    do {
+    while (rand === prev || (index === 1 && rand === cur_cookie_back) || (index === 2 && rand == cur_cookie_front)) {
         rand = randrange(array.length)
-    } while (rand === prev)
+    }
 
     return rand
 }
 
-const randomCookie = (index) => {
-    cur_cookie = choice(cur_cookie, cookies)
+const randomCookieFront = (index) => {
+    cur_cookie_front = choice(cur_cookie_front, index, cookies)
 
-    document.getElementById('img' + index).src = cookies_image[cur_cookie].src
-    document.getElementById('name' + index).innerText = cookies[cur_cookie]
+    document.getElementById('img' + index).src = cookies_image[cur_cookie_front].src
+    document.getElementById('name' + index).innerText = cookies[cur_cookie_front]
+}
+
+const randomCookieBack = (index) => {
+    cur_cookie_back = choice(cur_cookie_back, index, cookies)
+
+    document.getElementById('img' + index).src = cookies_image[cur_cookie_back].src
+    document.getElementById('name' + index).innerText = cookies[cur_cookie_back]
 }
 
 const randomPet = (index) => {
-    cur_pet = choice(cur_pet, pets)
+    cur_pet = choice(cur_pet, index, pets)
 
     document.getElementById('img' + index).src = pets_image[cur_pet].src
     document.getElementById('name' + index).innerText = pets[cur_pet]
 }
 
 const randomEpisode = (index) => {
-    cur_episode = choice(cur_episode, episodes)
+    cur_episode = choice(cur_episode, index, episodes)
 
     document.getElementById('img' + index).src = episodes_image[cur_episode].src
     document.getElementById('name' + index).innerText = episodes[cur_episode]
