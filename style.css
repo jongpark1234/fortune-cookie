@@ -29,6 +29,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 50px;
 }
 
 .title {
@@ -85,13 +86,44 @@ html, body {
     margin-top: 20px;
     border: none;
     color: #fff;
+    user-select: none;
     background-color: rgb(88, 101, 242);
     transition: background-color .17s ease, color .17s ease;
-    
 }
 .button:hover {
     background-color: rgb(71, 82, 196);
 }
 .button:active {
+    transform: translateY(5px);
+}
+
+.utilContainer {
+    display: flex;
+    gap: 50px;
+}
+
+.utilButton {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    height: 38px;
+    min-width: 96px;
+    min-height: 38px;
+    margin-top: 20px;
+    border: none;
+    color: #e7e7e7;
+    user-select: none;
+    background-color: rgb(237, 84, 100);
+    transition: background-color .17s ease, color .17s ease;
+}
+.utilButton:hover {
+    background-color: rgb(190, 86, 97);
+}
+.utilButton:active {
     transform: translateY(5px);
 }

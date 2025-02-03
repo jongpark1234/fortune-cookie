@@ -24,10 +24,10 @@ $(window).on('wheel', (e) => {
 })
 
 
-let cur_cookie_front = 0
-let cur_cookie_back = 0
-let cur_pet = 0
-let cur_episode = 0
+let cur_cookie_front = -1
+let cur_cookie_back = -1
+let cur_pet = -1
+let cur_episode = -1
 
 const cookies = [
     '용감한 쿠키군',
@@ -198,6 +198,9 @@ const episodes = [
     '디저트 파라다이스'
 ]
 
+const unknown = new Image();
+unknown.src = './images/unknown.webp'
+
 const cookies_image = Array.from({ length: cookies.length }, (_, idx) => {
     const img = new Image()
     img.src = `./images/cookies/${idx}.webp`
@@ -230,7 +233,11 @@ const randrange = (range) => {
 const choice = (prev, index, array) => {
     let rand = randrange(array.length)
 
-    while (rand === prev || (index === 1 && rand === cur_cookie_back) || (index === 2 && rand == cur_cookie_front)) {
+    while (
+        (rand === prev) || 
+        (index === 1 && rand === cur_cookie_back) || 
+        (index === 2 && rand == cur_cookie_front)
+    ) {
         rand = randrange(array.length)
     }
 
@@ -263,4 +270,30 @@ const randomEpisode = (index) => {
 
     document.getElementById('img' + index).src = episodes_image[cur_episode].src
     document.getElementById('name' + index).innerText = episodes[cur_episode]
+}
+
+const allClear = () => {
+    cur_cookie_front = -1;
+    cur_cookie_back = -1;
+    cur_pet = -1;
+    cur_episode = -1;
+    
+    for (let i = 1; i <= 4; i++) {
+        document.getElementById(`img${i}`).src = unknown.src;
+        document.getElementById(`name${i}`).innerText = '지정되지 않음'
+    }
+}
+
+const exchangeFrontBack = () => {
+
+    if (cur_cookie_front === -1 || cur_cookie_back === -1) {
+        return;
+    }
+
+    [cur_cookie_front, cur_cookie_back] = [cur_cookie_back, cur_cookie_front];
+
+    document.getElementById('img1').src = cookies_image[cur_cookie_front].src
+    document.getElementById('name1').innerText = cookies[cur_cookie_front]
+    document.getElementById('img2').src = cookies_image[cur_cookie_back].src
+    document.getElementById('name2').innerText = cookies[cur_cookie_back]
 }
