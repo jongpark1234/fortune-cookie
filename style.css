@@ -29,18 +29,21 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 100px;
 }
 
 .title {
     color: #fff;
     font-size: 2.5rem;
+    user-select: none;
 }
 
 .text {
     color: #fff;
     font-size: 1rem;
     font-weight: bold;
+    user-select: none;
+    white-space: nowrap;
 }
 
 .container {
@@ -61,6 +64,7 @@ html, body {
     width: 100px;
     height: 100px;
     object-fit: contain;
+    user-select: none;
 }
 
 .petImage {
@@ -68,6 +72,7 @@ html, body {
     height: 90px;
     margin-top: 5px;
     margin-bottom: 5px;
+    user-select: none;
     object-fit: contain;
 }
 
@@ -99,6 +104,7 @@ html, body {
 
 .utilContainer {
     display: flex;
+    align-items: center;
     gap: 50px;
 }
 
@@ -114,7 +120,6 @@ html, body {
     height: 38px;
     min-width: 96px;
     min-height: 38px;
-    margin-top: 20px;
     border: none;
     color: #e7e7e7;
     user-select: none;
@@ -126,4 +131,77 @@ html, body {
 }
 .utilButton:active {
     transform: translateY(5px);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    appearance: textfield;
+}
+
+.quantity-container {
+    display: flex;
+    flex-direction: column; /* 라벨을 입력 필드 위로 배치 */
+    align-items: center; /* 좌측 정렬 */
+    margin-bottom: 20px; /* 다른 요소와 간격 */
+}
+  
+.quantity-label {
+    font-size: 14px;
+    color: rgb(247, 248, 248);
+    margin-bottom: 5px;
+}
+
+.quantity {
+    position: relative;  
+}
+  
+.quantity-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+  
+.quantity input {
+    user-select: none;
+    min-height: 38px;
+    padding: 6px 12px;
+    background: rgb(31, 32, 35);
+    border: 1px solid rgb(60, 63, 68);
+    border-radius: 4px 0 0 4px;
+    font-size: 13px;
+    color: rgb(252, 255, 100);
+    transition: border 0.15s ease;
+}
+  
+.quantity input:focus {
+    outline: none;
+    box-shadow: none;
+}
+  
+.quantity-nav {
+    display: flex;
+    flex-direction: column;
+}
+  
+.quantity-button {
+    cursor: pointer;
+    border: none;
+    width: 18px;
+    border: 1px solid rgb(60, 63, 68);
+    height: calc(50% - 1px);
+    text-align: center;
+    color: #aaaaaa;
+    font-size: 13px;
+    background: rgb(31, 32, 35);
+    transform: rotate(90deg);
+    user-select: none;
+}
+  
+.quantity-button:hover {
+    background-color: #444;
 }

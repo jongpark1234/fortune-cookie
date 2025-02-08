@@ -245,6 +245,10 @@ const choice = (prev, index, array) => {
 }
 
 const randomCookieFront = (index) => {
+    if (cur_cookie_front !== -1) {
+        decreaseReroll();
+    }
+
     cur_cookie_front = choice(cur_cookie_front, index, cookies)
 
     document.getElementById('img' + index).src = cookies_image[cur_cookie_front].src
@@ -252,6 +256,10 @@ const randomCookieFront = (index) => {
 }
 
 const randomCookieBack = (index) => {
+    if (cur_cookie_back !== -1) {
+        decreaseReroll();
+    }
+
     cur_cookie_back = choice(cur_cookie_back, index, cookies)
 
     document.getElementById('img' + index).src = cookies_image[cur_cookie_back].src
@@ -259,6 +267,10 @@ const randomCookieBack = (index) => {
 }
 
 const randomPet = (index) => {
+    if (cur_pet !== -1) {
+        decreaseReroll();
+    }
+
     cur_pet = choice(cur_pet, index, pets)
 
     document.getElementById('img' + index).src = pets_image[cur_pet].src
@@ -296,4 +308,12 @@ const exchangeFrontBack = () => {
     document.getElementById('name1').innerText = cookies[cur_cookie_front]
     document.getElementById('img2').src = cookies_image[cur_cookie_back].src
     document.getElementById('name2').innerText = cookies[cur_cookie_back]
+}
+
+const increaseReroll = () =>{
+    document.getElementById('reroll').value++;
+}
+
+const decreaseReroll = () =>{
+    document.getElementById('reroll').value--;
 }

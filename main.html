@@ -13,13 +13,13 @@
         <h1 class="title">Random Run</h1>
         <div class="container">
             <div class="block" id="block1">
-                <span class="text">쿠키1</span>
+                <span class="text">선달</span>
                 <img class="image" src="./images/unknown.webp" id="img1"/>
                 <span class="text" id="name1">지정되지 않음</span>
                 <button class="button" id="button1" onclick="randomCookieFront(1)">Roll</button>
             </div>
             <div class="block" id="block1">
-                <span class="text">쿠키2</span>
+                <span class="text">이달</span>
                 <img class="image" src="./images/unknown.webp" id="img2"/>
                 <span class="text" id="name2">지정되지 않음</span>
                 <button class="button" id="button2" onclick="randomCookieBack(2)">Roll</button>
@@ -38,6 +38,18 @@
             </div>
         </div>
         <div class="utilContainer">
+            <div class="quantity-container">
+                <label for="quantity-input" class="quantity-label">Rolls</label>
+                <div class="quantity">
+                    <div class="quantity-wrapper">
+                        <input id="reroll" type="number" min="0" max="100" step="1" value="0">
+                        <div class="quantity-nav">
+                            <button class="quantity-button quantity-up" onclick="increaseReroll();">&lt;</button>
+                            <button class="quantity-button quantity-down" onclick="decreaseReroll();">&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <button class="utilButton" id="utilButton1" onclick="allClear()">초기화</button>
             <button class="utilButton" id="utilButton2" onclick="exchangeFrontBack()">선/이달 교체</button>
         </div>
