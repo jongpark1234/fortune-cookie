@@ -29,7 +29,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 75px;
 }
 
 .title {
@@ -50,7 +50,7 @@ html, body {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 75px;
 }
 
 .block {
@@ -105,7 +105,7 @@ html, body {
 .utilContainer {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
 }
 
 .utilButton {
