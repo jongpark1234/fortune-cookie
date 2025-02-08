@@ -36,7 +36,7 @@ const cookies = [
     '딸기맛 쿠키',
     '버터크림 초코쿠키',
     '쿠키앤크림 쿠키',
-    '공주맛 쿠키 ',
+    '공주맛 쿠키',
     '근육맛 쿠키',
     '보더맛 쿠키',
     '용사맛 쿠키',
@@ -282,6 +282,19 @@ const randomEpisode = (index) => {
 
     document.getElementById('img' + index).src = episodes_image[cur_episode].src
     document.getElementById('name' + index).innerText = episodes[cur_episode]
+}
+
+const combiBonusEffect = () => {
+
+    confetti({
+        particleCount: 200,
+        spread: 70,
+        startVelocity: 80,
+        scalar: 1,
+        origin: {
+            y: 1
+        }
+    });
 }
 
 const allClear = () => {
