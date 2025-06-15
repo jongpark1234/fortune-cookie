@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="./style.css"/>
     <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <div class="background">
@@ -54,22 +55,45 @@
             <button class="utilButton" id="utilButton2" onclick="exchangeFrontBack()">선/이달 교체</button>
         </div>
     </div>
-    <!-- <div class="background">
-        <h1 class="title">At Once</h1>
-        <div class="container">
-            <div class="block">
-                <span class="text">쿠키</span>
-                <img class="image" src="./images/mark.webp" id="img5"/>
-                <span class="text" id="name5">지정되지 않음</span>
-                <button class="button" id="button5" onclick="randomCookie(5)">Roll</button>
+    <div class="background" style="gap: 20px;">
+        <h1 class="title">Random Number</h1>
+        <div class="container" style>
+            <div class="quantity-container">
+                <label for="quantity-input" class="quantity-label">시작 숫자</label>
+                <div class="quantity">
+                    <div class="quantity-wrapper">
+                        <input id="numberStart" type="number" min="0" max="100" step="1" value="0">
+                        <div class="quantity-nav">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="block">
-                <span class="text">펫</span>
-                <img class="petImage" src="./images/mark.webp" id="img6"/>
-                <span class="text" id="name6">지정되지 않음</span>
-                <button class="button" id="button6" onclick="randomPet(6)">Roll</button>
+            <div class="quantity-container">
+                <label for="quantity-input" class="quantity-label">종료 숫자</label>
+                <div class="quantity">
+                    <div class="quantity-wrapper">
+                        <input id="numberEnd" type="number" min="0" max="100" step="1" value="0">
+                        <div class="quantity-nav">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> -->
+        <div class="container" style>
+            <div class="quantity-container">
+                <label for="quantity-input" class="quantity-label">결괏값</label>
+                <div class="quantity">
+                    <div class="quantity-wrapper" style="width: 200px;">
+                        <input id="numberResult" type="number" min="0" max="100" step="1" style="width: 200px;">
+                        <div class="quantity-nav">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="utilContainer">
+            <button class="button" id="numberButton" onclick="randomNumber()">Roll</button>
+        </div>
+    </div>
 </body>
 </html>

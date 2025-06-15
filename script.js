@@ -339,3 +339,9 @@ const increaseReroll = () =>{
 const decreaseReroll = () =>{
     document.getElementById('reroll').value--;
 }
+
+const randomNumber = () => {
+    min = Number(document.getElementById('numberStart').value);
+    max = Number(document.getElementById('numberEnd').value);
+    document.getElementById('numberResult').value = Math.floor(Math.random() * (max - min + 1)) + min;
+}
