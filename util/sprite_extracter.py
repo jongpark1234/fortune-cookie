@@ -58,8 +58,11 @@ def extract_sprites(plist_path: str, spritesheet_path: str, output_dir: str):
         print(f"✅ {frame_name} 저장 완료")
 
 if __name__ == '__main__':
+
+    target = 'crc_head_icon'
+
     extract_sprites(
-        plist_path='./util/ch81x2.plist',
-        spritesheet_path='./util/ch81x2.png',
+        plist_path=f'./util/{target}.plist',
+        spritesheet_path=f'./util/{target}.png',
         output_dir='./util/results'
     )
