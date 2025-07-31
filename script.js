@@ -107,7 +107,8 @@ const cookies = [
     '오이맛 쿠키',
     '식혜맛 쿠키',
     '수정과맛 쿠키',
-    '보리장수맛 쿠키'
+    '보리장수맛 쿠키',
+    '바리공주맛 쿠키'
 ]
 
 const pets = [
@@ -197,7 +198,8 @@ const pets = [
     '오이푸딩 개구리',
     '흑돌 흑미 선생',
     '백돌 백미 선생',
-    '용마인형'
+    '용마인형',
+    '꿀떡 영혼'
 ]
 
 const episodes = [
@@ -209,13 +211,26 @@ const episodes = [
     '미지의 토끼굴 여행'
 ]
 
+
 const unknown = new Image();
 unknown.src = './images/unknown.webp'
 
 const cookies_image = Array.from({ length: cookies.length }, (_, idx) => {
+
+    // 바리공주맛 쿠키
+    if (idx === 78) {
+        const images = [];
+        for (let i = 0; i < 3; i++) {
+            const extraImg = new Image()
+            extraImg.src = `./images/cookies/${idx}_${i}.webp`
+            images.push(extraImg)
+        }
+        return images
+    }
+
     const img = new Image()
     img.src = `./images/cookies/${idx}.webp`
-
+    
     return img
 })
 
@@ -262,6 +277,14 @@ const randomCookieFront = (index) => {
 
     cur_cookie_front = choice(cur_cookie_front, index, cookies)
 
+    // 바리공주맛 쿠키
+    if (cur_cookie_front === 78) {
+        playEffect()
+        document.getElementById('img' + index).src = cookies_image[cur_cookie_front][randrange(3)].src
+        document.getElementById('name' + index).innerText = cookies[cur_cookie_front]
+        return
+    }
+
     document.getElementById('img' + index).src = cookies_image[cur_cookie_front].src
     document.getElementById('name' + index).innerText = cookies[cur_cookie_front]
 }
@@ -272,6 +295,13 @@ const randomCookieBack = (index) => {
     }
 
     cur_cookie_back = choice(cur_cookie_back, index, cookies)
+
+    // 바리공주맛 쿠키
+    if (cur_cookie_back === 78) {
+        document.getElementById('img' + index).src = cookies_image[cur_cookie_back][0].src
+        document.getElementById('name' + index).innerText = cookies[cur_cookie_back]
+        return
+    }
 
     document.getElementById('img' + index).src = cookies_image[cur_cookie_back].src
     document.getElementById('name' + index).innerText = cookies[cur_cookie_back]
@@ -295,12 +325,12 @@ const randomEpisode = (index) => {
     document.getElementById('name' + index).innerText = episodes[cur_episode]
 }
 
-const combiBonusEffect = () => {
+const playEffect = () => {
 
     confetti({
         particleCount: 200,
-        spread: 70,
-        startVelocity: 80,
+        spread: 100,
+        startVelocity: 90,
         scalar: 1,
         origin: {
             y: 1
