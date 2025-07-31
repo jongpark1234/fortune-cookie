@@ -3,12 +3,12 @@ from PIL import Image
 import os
 
 def parse_tuple(s: str) -> tuple:
-    return tuple(map(int, s.strip('{}').split(',')))
+    return tuple(map(lambda a: int(float(a)), s.strip('{}').split(',')))
 
 def parse_rect(s: str) -> tuple:
     parts = s.strip('{}').split('},{')
-    x, y = map(int, parts[0].split(','))
-    w, h = map(int, parts[1].split(','))
+    x, y = map(lambda a: int(float(a)), parts[0].split(','))
+    w, h = map(lambda a: int(float(a)), parts[1].split(','))
     return (x, y, w, h)
 
 def extract_sprites(plist_path: str, spritesheet_path: str, output_dir: str):
@@ -59,7 +59,7 @@ def extract_sprites(plist_path: str, spritesheet_path: str, output_dir: str):
 
 if __name__ == '__main__':
     extract_sprites(
-        plist_path='./util/pet92.plist',
-        spritesheet_path='./util/pet92.png',
+        plist_path='./util/ch81x2.plist',
+        spritesheet_path='./util/ch81x2.png',
         output_dir='./util/results'
     )
