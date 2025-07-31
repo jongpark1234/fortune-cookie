@@ -1,1 +1,3 @@
 /util/results
+/util/*.plist
+/util/*.png
