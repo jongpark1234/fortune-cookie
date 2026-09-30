@@ -59,7 +59,7 @@ def extract_sprites(plist_path: str, spritesheet_path: str, output_dir: str):
 
 if __name__ == '__main__':
 
-    target = 'crc_head_icon'
+    target = 'pet5007'
 
     extract_sprites(
         plist_path=f'./util/{target}.plist',
